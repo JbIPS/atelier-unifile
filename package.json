@@ -5,11 +5,14 @@
   "main": "server/app.js",
   "scripts": {
     "start": "node server/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "http-server ."
   },
   "author": "JbIPS",
   "license": "GPL-3.0",
   "dependencies": {
     "restify": "^4.3.0"
+  },
+  "devDependencies": {
+    "http-server": "^0.9.0"
   }
 }
