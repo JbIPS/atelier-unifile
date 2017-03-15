@@ -18,6 +18,7 @@
 			<header class="clearfix">
         <h1>Mon album photo <span>partout dans le cloud</span></h1>	
 			</header>
+      <input id='connect' type='submit' value='Se connecter'>
         <form >
           Title: <input type="text" name="title"><br/>
           <input type="file" name="file">
@@ -70,18 +71,25 @@
         request.open('GET', 'http://' + window.location.hostname + ':3000/photos');
         request.send();
       }, 1000);
-$('form').submit(function() {
-  var data = new FormData($(this)[0]);
-  $.ajax({
-    url: 'http://' + window.location.hostname + ':3000/photos',
-    type: 'POST',
-    data: data,
-    cache: false,
-    contentType: false,
-    processData: false
-  });
-  return false;
-});
+      
+      $('#connect').on('click', function() {
+        $.post('http://' + window.location.hostname + ':3000/dropbox/authorize', function(data) {
+          window.open(data);
+        });
+      });
+
+      $('form').submit(function() {
+        var data = new FormData($(this)[0]);
+        $.ajax({
+          url: 'http://' + window.location.hostname + ':3000/photos',
+          type: 'POST',
+          data: data,
+          cache: false,
+          contentType: false,
+          processData: false
+        });
+        return false;
+      });
     </script>
 	</body>
 </html>
