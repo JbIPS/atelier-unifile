@@ -27,6 +27,12 @@ server.get('/photos', (req, res, next) => {
 server.post('/photos', (req, res, next) => {
 });
 
+
+server.get(/\/.*/, restify.serveStatic({
+  directory: './public',
+  default: 'index.html'
+}));
+
 server.listen(3000);
 
 

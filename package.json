@@ -11,8 +11,5 @@
   "license": "GPL-3.0",
   "dependencies": {
     "restify": "^4.3.0"
-  },
-  "devDependencies": {
-    "http-server": "^0.9.0"
   }
 }
