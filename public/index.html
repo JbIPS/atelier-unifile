@@ -49,16 +49,12 @@
         request.addEventListener('load', function() {
           var res = JSON.parse(this.responseText);
           var newItems = $();
-          /*while (grid.hasChildNodes()) {
-              grid.removeChild(grid.lastChild);
-          }*/
           for(const img of res) {
             if(grid.querySelector('[data-largesrc="'+img.url + '"]') === null) {
               var newPhoto = document.importNode(template.content, true);
               var link = newPhoto.querySelector('a');
               link.setAttribute('data-largesrc', img.url);
               link.setAttribute('data-title', img.title.split('.')[0]);
-              //link.setAttribute('data-description', 'Desc images ' + i);
               link.firstElementChild.src = img.url
               link.firstElementChild.setAttribute('alt', img.title);
               grid.appendChild(newPhoto);
