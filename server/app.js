@@ -7,6 +7,7 @@ const restify = require('restify');
 
 const server = restify.createServer({name: 'Portfolio'});
 const PHOTOS_DIR = 'photos';
+const PORT = 3000;
 
 server.use(restify.bodyParser({
   maxBodySize: 0,
@@ -78,6 +79,7 @@ server.get(/\/.*/, restify.serveStatic({
   default: 'index.html'
 }));
 
-server.listen(3000);
+server.listen(PORT);
+console.log(`Server started on port ${PORT}`);
 
 

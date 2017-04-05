@@ -11,6 +11,6 @@
   "license": "GPL-3.0",
   "dependencies": {
     "restify": "^4.3.0",
-    "unifile": "https://github.com/silexlabs/unifile.git"
+    "unifile": "^1.0.0"
   }
 }
