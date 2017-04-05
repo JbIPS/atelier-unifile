@@ -53,6 +53,7 @@
           /*while (grid.hasChildNodes()) {
               grid.removeChild(grid.lastChild);
           }*/
+          if(!Array.isArray(res)) return;
           for(const img of res) {
             if(grid.querySelector('[data-largesrc="'+img.url + '"]') === null) {
               var newPhoto = document.importNode(template.content, true);
@@ -70,11 +71,11 @@
         });
         request.open('GET', 'http://' + window.location.hostname + ':3000/photos');
         request.send();
-      }, 1000);
+      }, 5000);
       
       $('#connect').on('click', function() {
         $.post('http://' + window.location.hostname + ':3000/dropbox/authorize', function(data) {
-          window.open(data);
+          //window.open(data);
         });
       });
 

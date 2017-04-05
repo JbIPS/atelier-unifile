@@ -100,14 +100,16 @@ server.post('/photos', (req, res, next) => {
 
 // login route
 server.post('/dropbox/authorize', function(req, res) {
-  unifile.getAuthorizeURL(req.unifile, 'dropbox')
+  unifile.setAccessToken(req.unifile, 'dropbox', 'm-rHPgzRKgkAAAAAAAAINf6zC5cpomduKS2tDvPxFy5KWCRbmZ-Bhx6FRp02igwO')
+  //unifile.getAuthorizeURL(req.unifile, 'dropbox')
   .catch((err) => {
     console.error('Error while authorizing Unifile', err);
     res.statusCode = 400;
     res.end();
   })
   .then((result) => {
-    res.end(result);
+    console.log('Hello', result);
+    res.send(200, 'OK');
   });
 });
 
